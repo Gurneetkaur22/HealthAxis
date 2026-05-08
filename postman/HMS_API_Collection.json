@@ -1,0 +1,81 @@
+{
+  "info": {
+    "name": "HMS API Collection",
+    "description": "Hospital Management System API endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:5000/api" },
+    { "key": "token", "value": "" }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+  },
+  "item": [
+    {
+      "name": "Test",
+      "item": [
+        { "name": "Health Check", "request": { "method": "GET", "url": "{{baseUrl}}/test" } }
+      ]
+    },
+    {
+      "name": "Auth",
+      "item": [
+        { "name": "Login", "request": { "method": "POST", "url": "{{baseUrl}}/auth/login", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\"email\": \"admin@hospital.com\", \"password\": \"admin123\"}" } } },
+        { "name": "Register", "request": { "method": "POST", "url": "{{baseUrl}}/auth/register", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\"name\": \"Test Patient\", \"email\": \"test@email.com\", \"password\": \"test1234\"}" } } },
+        { "name": "Get Me", "request": { "method": "GET", "url": "{{baseUrl}}/auth/me" } }
+      ]
+    },
+    {
+      "name": "Patients",
+      "item": [
+        { "name": "Get Patients", "request": { "method": "GET", "url": "{{baseUrl}}/patients?page=1&limit=10" } },
+        { "name": "Get Patient by ID", "request": { "method": "GET", "url": "{{baseUrl}}/patients/:id" } },
+        { "name": "Create Patient", "request": { "method": "POST", "url": "{{baseUrl}}/patients", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\"name\": \"New Patient\", \"email\": \"newpatient@email.com\", \"password\": \"patient123\", \"age\": 30, \"gender\": \"Male\", \"bloodGroup\": \"O+\", \"phone\": \"9999999999\"}" } } }
+      ]
+    },
+    {
+      "name": "Doctors",
+      "item": [
+        { "name": "Get Doctors", "request": { "method": "GET", "url": "{{baseUrl}}/doctors?page=1&limit=10" } },
+        { "name": "Get All Doctors", "request": { "method": "GET", "url": "{{baseUrl}}/doctors/all" } },
+        { "name": "Create Doctor", "request": { "method": "POST", "url": "{{baseUrl}}/doctors", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\"name\": \"Dr. New\", \"email\": \"dr.new@hospital.com\", \"password\": \"doctor123\", \"specialization\": \"Dermatologist\", \"consultationFee\": 400}" } } }
+      ]
+    },
+    {
+      "name": "Departments",
+      "item": [
+        { "name": "Get Departments", "request": { "method": "GET", "url": "{{baseUrl}}/departments" } },
+        { "name": "Create Department", "request": { "method": "POST", "url": "{{baseUrl}}/departments", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\"name\": \"Radiology\", \"description\": \"Medical imaging\"}" } } }
+      ]
+    },
+    {
+      "name": "Appointments",
+      "item": [
+        { "name": "Get Appointments", "request": { "method": "GET", "url": "{{baseUrl}}/appointments?page=1&limit=10" } },
+        { "name": "Create Appointment", "request": { "method": "POST", "url": "{{baseUrl}}/appointments", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\"patient\": \"PATIENT_ID\", \"doctor\": \"DOCTOR_ID\", \"date\": \"2025-04-15\", \"timeSlot\": \"10:00 AM\", \"reason\": \"Checkup\"}" } } }
+      ]
+    },
+    {
+      "name": "Billing",
+      "item": [
+        { "name": "Get Billings", "request": { "method": "GET", "url": "{{baseUrl}}/billing?page=1&limit=10" } },
+        { "name": "Create Billing", "request": { "method": "POST", "url": "{{baseUrl}}/billing", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\"patient\": \"PATIENT_ID\", \"items\": [{\"description\": \"Consultation\", \"category\": \"consultation\", \"amount\": 500}], \"totalAmount\": 500}" } } }
+      ]
+    },
+    {
+      "name": "Rooms",
+      "item": [
+        { "name": "Get Rooms", "request": { "method": "GET", "url": "{{baseUrl}}/rooms" } },
+        { "name": "Room Availability Stats", "request": { "method": "GET", "url": "{{baseUrl}}/rooms/stats/availability" } }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "item": [
+        { "name": "Get Dashboard Stats", "request": { "method": "GET", "url": "{{baseUrl}}/dashboard" } }
+      ]
+    }
+  ]
+}
