@@ -8,7 +8,7 @@ const API = axios.create({
 
 // Attach token to every request
 API.interceptors.request.use((config) => {
-  const token = localStorage.getItem('hms_token');
+  const token = localStorage.getItem('healthaxis_token');
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
@@ -22,8 +22,8 @@ API.interceptors.response.use(
     if (error.response?.status === 401) {
       const message = error.response.data?.message || 'Session expired';
       if (message.includes('expired') || message.includes('invalid')) {
-        localStorage.removeItem('hms_token');
-        localStorage.removeItem('hms_user');
+        localStorage.removeItem('healthaxis_token');
+        localStorage.removeItem('healthaxis_user');
         toast.error('Session expired. Please login again.');
         window.location.href = '/login';
       }

@@ -14,8 +14,8 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const token = localStorage.getItem('hms_token');
-    const savedUser = localStorage.getItem('hms_user');
+    const token = localStorage.getItem('healthaxis_token');
+    const savedUser = localStorage.getItem('healthaxis_user');
     if (token && savedUser) {
       try {
         setUser(JSON.parse(savedUser));
@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
         API.get('/auth/me')
           .then((res) => {
             setUser(res.data.user);
-            localStorage.setItem('hms_user', JSON.stringify(res.data.user));
+            localStorage.setItem('healthaxis_user', JSON.stringify(res.data.user));
           })
           .catch(() => {
             logout();
@@ -41,8 +41,8 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     const res = await API.post('/auth/login', { email, password });
     const { token, user: userData } = res.data;
-    localStorage.setItem('hms_token', token);
-    localStorage.setItem('hms_user', JSON.stringify(userData));
+    localStorage.setItem('healthaxis_token', token);
+    localStorage.setItem('healthaxis_user', JSON.stringify(userData));
     setUser(userData);
     return userData;
   };
@@ -50,15 +50,15 @@ export const AuthProvider = ({ children }) => {
   const register = async (name, email, password) => {
     const res = await API.post('/auth/register', { name, email, password });
     const { token, user: userData } = res.data;
-    localStorage.setItem('hms_token', token);
-    localStorage.setItem('hms_user', JSON.stringify(userData));
+    localStorage.setItem('healthaxis_token', token);
+    localStorage.setItem('healthaxis_user', JSON.stringify(userData));
     setUser(userData);
     return userData;
   };
 
   const logout = () => {
-    localStorage.removeItem('hms_token');
-    localStorage.removeItem('hms_user');
+    localStorage.removeItem('healthaxis_token');
+    localStorage.removeItem('healthaxis_user');
     setUser(null);
   };
 

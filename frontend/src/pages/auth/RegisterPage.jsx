@@ -29,7 +29,7 @@ const RegisterPage = () => {
       <div className="w-full max-w-md">
         <div className="flex items-center gap-3 mb-8 justify-center">
           <div className="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center text-white font-bold">H</div>
-          <h1 className="text-xl font-bold text-dark-900">HMS</h1>
+          <h1 className="text-xl font-bold text-dark-900">HealthAxis</h1>
         </div>
         <div className="card">
           <h2 className="text-2xl font-bold text-dark-900 mb-1">Create Account</h2>

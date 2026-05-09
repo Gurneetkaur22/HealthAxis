@@ -51,7 +51,7 @@ const Sidebar = ({ isOpen, onClose }) => {
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 bg-primary-500 rounded-lg flex items-center justify-center font-bold text-lg">H</div>
             <div>
-              <h1 className="font-bold text-lg leading-none">HMS</h1>
+              <h1 className="font-bold text-lg leading-none">HealthAxis</h1>
               <p className="text-[10px] text-dark-400 uppercase tracking-wider">Hospital System</p>
             </div>
           </div>

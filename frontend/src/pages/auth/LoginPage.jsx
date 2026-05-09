@@ -42,8 +42,8 @@ const LoginPage = () => {
           <div className="flex items-center gap-3 mb-8">
             <div className="w-12 h-12 bg-white/20 backdrop-blur rounded-xl flex items-center justify-center font-bold text-xl">H</div>
             <div>
-              <h1 className="text-2xl font-bold">HMS</h1>
-              <p className="text-sm text-primary-200">Hospital Management System</p>
+              <h1 className="text-2xl font-bold">HealthAxis</h1>
+              <p className="text-sm text-primary-200">Smart Healthcare Management</p>
             </div>
           </div>
           <h2 className="text-4xl font-bold leading-tight mb-4">Manage your hospital<br />with confidence</h2>
@@ -64,7 +64,7 @@ const LoginPage = () => {
         <div className="w-full max-w-md">
           <div className="lg:hidden flex items-center gap-3 mb-8">
             <div className="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center text-white font-bold">H</div>
-            <h1 className="text-xl font-bold text-dark-900">HMS</h1>
+            <h1 className="text-xl font-bold text-dark-900">HealthAxis</h1>
           </div>
 
           <h2 className="text-2xl font-bold text-dark-900 mb-1">Welcome back</h2>
