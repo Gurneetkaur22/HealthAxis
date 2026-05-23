@@ -63,10 +63,9 @@ app.use('/api/admissions',     require('./routes/admissions'));
 app.use('/api/rooms',          require('./routes/rooms'));
 app.use('/api/medical-records',require('./routes/medicalRecords'));
 app.use('/api/dashboard',      require('./routes/dashboard'));
-<<<<<<< HEAD
+
 app.use('/api/seed',           require('./routes/seed'));
-=======
->>>>>>> 7558ab053cce7f6eea2d7aed4cd888c769bc6c50
+
 
 app.use(errorHandler);
 
